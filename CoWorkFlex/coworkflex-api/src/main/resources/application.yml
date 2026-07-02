@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: coworkflex-api
+  main:
+    allow-circular-references: true
+
+  datasource:
+    url: jdbc:h2:mem:coworkflex;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8080
+
+app:
+  jwt:
+    secret: CoWorkFlex2026_JWT_Secret_Tres_Long_Et_Solide_Pour_La_Securite
+    expiration: 86400000
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.coworkflex: DEBUG

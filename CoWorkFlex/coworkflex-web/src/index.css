@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --rouge: #e8194b;
+  --rouge-light: #fff0f4;
+  --noir: #0a0a0a;
+  --blanc: #ffffff;
+  --gris: #f4f4f4;
+  --gris2: #e8e8e8;
+  --texte: #1a1a1a;
+  --muted: #888;
+  --border: #e5e5e5;
+  --violet: #a855f7;
+  --font-title: "Bebas Neue", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--blanc);
+  color: var(--texte);
+  line-height: 1.5;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--gris);
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.fade-in {
+  animation: fadeIn 0.4s ease;
+}
+.spin {
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg bg-rouge px-7 py-3 text-sm font-semibold tracking-wide text-white transition-all duration-200;
+  }
+  .btn-primary:hover {
+    @apply -translate-y-px bg-rouge-dark;
+    box-shadow: 0 6px 20px rgba(232, 25, 75, 0.3);
+  }
+  .btn-primary:disabled {
+    @apply translate-y-0 cursor-not-allowed bg-gray-300 shadow-none;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-lg border-[1.5px] border-border bg-transparent px-6 py-[11px] text-sm font-medium text-texte transition-all duration-200;
+  }
+  .btn-outline:hover {
+    @apply border-rouge text-rouge;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-[3px] text-[11px] font-semibold tracking-wide;
+  }
+  .badge-red {
+    background: rgba(232, 25, 75, 0.12);
+    color: var(--rouge);
+  }
+  .badge-green {
+    background: rgba(34, 197, 94, 0.12);
+    color: #16a34a;
+  }
+  .badge-orange {
+    background: rgba(249, 115, 22, 0.12);
+    color: #ea580c;
+  }
+  .badge-blue {
+    background: rgba(59, 130, 246, 0.12);
+    color: #2563eb;
+  }
+  .badge-violet {
+    background: rgba(168, 85, 247, 0.12);
+    color: #9333ea;
+  }
+  .badge-grey {
+    background: rgba(136, 136, 136, 0.14);
+    color: #666;
+  }
+
+  .card {
+    @apply rounded-card border border-border bg-white;
+  }
+
+  .section-title {
+    font-family: var(--font-title);
+    @apply flex items-center gap-2.5 text-[34px] tracking-wide;
+  }
+  .section-title i {
+    @apply text-rouge;
+    font-size: 28px;
+  }
+
+  .form-group label {
+    @apply mb-[7px] block text-[13px] font-medium text-gray-700;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    @apply w-full rounded-[10px] border-[1.5px] border-border bg-white px-3.5 py-3 text-sm outline-none transition-colors duration-200;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    @apply border-rouge;
+  }
+
+  .nav-logo {
+    font-family: var(--font-title);
+    @apply flex items-center gap-2 text-2xl tracking-[2px] text-rouge;
+  }
+}
