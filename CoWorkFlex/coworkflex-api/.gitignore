@@ -1,0 +1,4 @@
+target/
+*.class
+*.jar
+!target/coworkflex-api-1.0.0.jar
